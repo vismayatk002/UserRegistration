@@ -28,7 +28,6 @@ public class UserRegistration {
 		String regex = "^(.+)@bl.co(.+)$"; 
 		Pattern pattern = Pattern.compile(regex); 
 		if(pattern.matcher(email).matches()) {
-			System.out.println( "valid");
 			return true;
 		}
 		else {
