@@ -52,8 +52,9 @@ public class UserRegistration {
 	public boolean validatePassword(String password) {
 		
 		boolean returnFlag = true;
-		Pattern UpperCasePatten = Pattern.compile("[A-Z ]");
+		Pattern UpperCasePatten = Pattern.compile("[A-Z]");
 		Pattern numericNumberPatten = Pattern.compile("[0-9 ]");
+		Pattern specialCharacterPatten = Pattern.compile("[^a-zA-Z0-9]");
 		if(password.length() < 8) {
 			
 			System.out.println( "Password should have minimum 8 characters");
@@ -67,6 +68,11 @@ public class UserRegistration {
 		else if (!numericNumberPatten.matcher(password).find()){
 			
 			System.out.println("Password must have atleast one numeric number");
+			returnFlag=false;
+		}
+		else if (!specialCharacterPatten.matcher(password).find()){
+			
+			System.out.println("Password must have exactly one special character");
 			returnFlag=false;
 		}
 		return returnFlag;
@@ -106,7 +112,7 @@ public class UserRegistration {
     	user.validateEmail(emailId3);
     	user.validateEmail(emailId4);
     	user.validateEmail(emailId5);
-    	user.validateEmail(emailId6);
+       	user.validateEmail(emailId6);
     	user.validateEmail(emailId7);
     	user.validateEmail(emailId8);
     	user.validateEmail(emailId9);
