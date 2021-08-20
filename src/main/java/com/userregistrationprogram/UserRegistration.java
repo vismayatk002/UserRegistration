@@ -25,14 +25,14 @@ public class UserRegistration {
 	
 	public boolean validateEmail(String email) {
 			
-		String regex = "^[A-Za-z](.+)@(.+)$"; 
+		String regex = "^(.+)@bl.co(.+)$"; 
 		Pattern pattern = Pattern.compile(regex); 
 		if(pattern.matcher(email).matches()) {
-			System.out.println( "True");
+			System.out.println( "valid");
 			return true;
 		}
 		else {
-			System.out.println( "False");
+			System.out.println( "Invalid Email id");
 			return false;
 		}
 	}
@@ -81,42 +81,26 @@ public class UserRegistration {
     public static void main( String[] args ) {
         
     	UserRegistration user = new UserRegistration();
-    	Scanner sc = new Scanner(System.in);
+    	Scanner sc = new Scanner(System.in);	
     	System.out.print( "Enter your first name : ");
     	String firstName = sc.nextLine(); 
     	if(user.validateName(firstName)) {
     		System.out.print( "Enter your last name : ");
-    		String lastName = sc.nextLine(); 
+    		String lastName = sc.nextLine();
     		if(user.validateName(lastName)) {
-	    		System.out.print( "Enter your Mobile Number : ");
-	    		String mobNo = sc.nextLine(); 
-	    		if(user.validateMobileNo(mobNo)) {
-		    		System.out.print( "Enter your Password : ");
-		    		String password = sc.nextLine(); 
-		    		user.validatePassword(password);
-	    		}
+    			System.out.print( "Enter your email id : ");
+        		String email = sc.nextLine();
+        		if(user.validateEmail(email)) {
+		    		System.out.print( "Enter your Mobile Number : ");
+		    		String mobNo = sc.nextLine(); 
+		    		if(user.validateMobileNo(mobNo)) {
+			    		System.out.print( "Enter your Password : ");
+			    		String password = sc.nextLine(); 
+			    		user.validatePassword(password);
+		    		}
+        		}
     		}
     	}
-    	
-    	String emailId1 = "abc@yahoo.com";
-    	String emailId2 = "abc-100@yahoo.com";
-    	String emailId3 = "abc.100@yahoo.com";
-    	String emailId4 = "abc111@abc.com";
-    	String emailId5 = "abc-100@abc.net";
-    	String emailId6 = "abc.100@abc.com.au";
-    	String emailId7 = "abc@1.com";
-    	String emailId8 = "34abc@gmail.com.com";
-    	String emailId9 = ".abc+100@gmail.com";
-    	user.validateEmail(emailId1);
-    	user.validateEmail(emailId2);
-    	user.validateEmail(emailId3);
-    	user.validateEmail(emailId4);
-    	user.validateEmail(emailId5);
-       	user.validateEmail(emailId6);
-    	user.validateEmail(emailId7);
-    	user.validateEmail(emailId8);
-    	user.validateEmail(emailId9);
-    	
     	sc.close();
     }
 }
