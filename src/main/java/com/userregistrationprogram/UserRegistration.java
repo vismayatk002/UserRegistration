@@ -53,14 +53,20 @@ public class UserRegistration {
 		
 		boolean returnFlag = true;
 		Pattern UpperCasePatten = Pattern.compile("[A-Z ]");
+		Pattern numericNumberPatten = Pattern.compile("[0-9 ]");
 		if(password.length() < 8) {
 			
 			System.out.println( "Password should have minimum 8 characters");
 			returnFlag = false;
 		}
 		else if (!UpperCasePatten.matcher(password).find()){
-
+		
 			System.out.println("Password must have atleast one uppercase character");
+			returnFlag=false;
+		}
+		else if (!numericNumberPatten.matcher(password).find()){
+			
+			System.out.println("Password must have atleast one numeric number");
 			returnFlag=false;
 		}
 		return returnFlag;
