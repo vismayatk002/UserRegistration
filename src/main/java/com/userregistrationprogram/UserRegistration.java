@@ -51,12 +51,19 @@ public class UserRegistration {
 	
 	public boolean validatePassword(String password) {
 		
+		boolean returnFlag = true;
+		Pattern UpperCasePatten = Pattern.compile("[A-Z ]");
 		if(password.length() < 8) {
 			
 			System.out.println( "Password should have minimum 8 characters");
-			return false;
+			returnFlag = false;
 		}
-		return true;
+		else if (!UpperCasePatten.matcher(password).find()){
+
+			System.out.println("Password must have atleast one uppercase character");
+			returnFlag=false;
+		}
+		return returnFlag;
 	}
 	
     public static void main( String[] args ) {
@@ -74,7 +81,7 @@ public class UserRegistration {
 	    		if(user.validateMobileNo(mobNo)) {
 		    		System.out.print( "Enter your Password : ");
 		    		String password = sc.nextLine(); 
-		    		user.validateMobileNo(password);
+		    		user.validatePassword(password);
 	    		}
     		}
     	}
