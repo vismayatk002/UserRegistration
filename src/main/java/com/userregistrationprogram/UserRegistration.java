@@ -74,7 +74,7 @@ public class UserRegistration {
 	    		if(user.validateMobileNo(mobNo)) {
 		    		System.out.print( "Enter your Password : ");
 		    		String password = sc.nextLine(); 
-		    		user.validateMobileNo(password);
+		    		user.validatePassword(password);
 	    		}
     		}
     	}
