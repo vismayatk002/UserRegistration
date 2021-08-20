@@ -36,6 +36,18 @@ public class UserRegistration {
 			return false;
 		}
 	}
+	
+	public boolean validateMobileNo(String mobNo) {
+		
+		Pattern pattern = Pattern.compile("91[0-9]{10}");
+		if(pattern.matcher(mobNo).matches()) {
+			return true;
+		}
+		else {
+			System.out.println( "Invalid Mobile number");
+			return false;
+		}
+	}
 
     public static void main( String[] args ) {
         
@@ -47,6 +59,9 @@ public class UserRegistration {
     		System.out.print( "Enter your last name : ");
     		String lastName = sc.nextLine(); 
     		user.validateName(lastName);
+    		System.out.print( "Enter your Mobile Number : ");
+    		String mobNo = sc.nextLine(); 
+    		user.validateMobileNo(mobNo);
     	}
     	
     	String emailId1 = "abc@yahoo.com";
