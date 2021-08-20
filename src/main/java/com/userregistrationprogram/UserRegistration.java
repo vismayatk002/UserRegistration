@@ -48,7 +48,17 @@ public class UserRegistration {
 			return false;
 		}
 	}
-
+	
+	public boolean validatePassword(String password) {
+		
+		if(password.length() < 8) {
+			
+			System.out.println( "Password should have minimum 8 characters");
+			return false;
+		}
+		return true;
+	}
+	
     public static void main( String[] args ) {
         
     	UserRegistration user = new UserRegistration();
@@ -58,10 +68,15 @@ public class UserRegistration {
     	if(user.validateName(firstName)) {
     		System.out.print( "Enter your last name : ");
     		String lastName = sc.nextLine(); 
-    		user.validateName(lastName);
-    		System.out.print( "Enter your Mobile Number : ");
-    		String mobNo = sc.nextLine(); 
-    		user.validateMobileNo(mobNo);
+    		if(user.validateName(lastName)) {
+	    		System.out.print( "Enter your Mobile Number : ");
+	    		String mobNo = sc.nextLine(); 
+	    		if(user.validateMobileNo(mobNo)) {
+		    		System.out.print( "Enter your Password : ");
+		    		String password = sc.nextLine(); 
+		    		user.validateMobileNo(password);
+	    		}
+    		}
     	}
     	
     	String emailId1 = "abc@yahoo.com";
