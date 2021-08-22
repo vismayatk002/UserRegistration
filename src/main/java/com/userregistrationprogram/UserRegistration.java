@@ -54,7 +54,7 @@ public class UserRegistration {
 		boolean returnFlag = true;
 		Pattern UpperCasePatten = Pattern.compile("[A-Z]");
 		Pattern numericNumberPatten = Pattern.compile("[0-9 ]");
-		Pattern specialCharacterPatten = Pattern.compile("[^a-zA-Z0-9]");
+		Pattern specialCharacterPatten = Pattern.compile("[fm][^a-zA-Z0-9]");
 		if(password.length() < 8) {
 			
 			System.out.println( "Password should have minimum 8 characters");
